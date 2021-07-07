@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="refresh" content="3;url=http://tw.yahoo.com"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>
+        
+        //jQuery選擇網頁元素
         window.onload = function(){ 
-            $("#div1").css("backgroundColor","red");
+            /*
+            //模擬css選擇元素
+            $(".box").css("backgroundColor","red");
+            $("#div1").css("backgroundColor","green");
+            //$("ol").css("backgroundColor","blue");
+            $("[name=hello]").css("backgroundColor","yellow");
+            */
+           /*
+            //jQuery獨有表達式選擇
+            //選擇li的最後一個
+            $("li:last").css("backgroundColor","orange");
+            //選擇li的第五個
+            $("li:eq(4)").css("backgroundColor","purple");
+            */
+            //上面的寫法也可以這樣寫
+            $("li").eq(4).css("backgroundColor","purple");
+            $("li").filter(".box").css("backgroundColor","green");
+            $("li.cat").css("backgroundColor","red");
         }
+        
     </script>
 </head>
 <body>
@@ -20,6 +41,18 @@
         <li name = 'hello'>11111</li>
         <li>22222</li>
         <li class = 'box'>11111</li>
+    </ul>
+    <ul id= 'listA'>
+        <li>33333</li>
+        <li>33333</li>
+        <li>33333</li>
+        <li>33333</li>
+    </ul>
+    <ul id= 'listB'>
+        <li>55555</li>
+        <li>55555</li>
+        <li class="cat">55555</li>
+        <li>55555</li>
     </ul>
 </body>
 </html>
