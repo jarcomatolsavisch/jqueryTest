@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        // window.onload = function(){
+
+        // }
+
+        //Jquery寫法：將一個函數當作參數傳遞到＄函數裡面
+        //頁面加載完成後才執行
+        //
+        //『註』方法函數化：在JQ中基本見不到等於符號，所有的賦值操作都是函數傳參操作
+        //$(function(){
+        //    alert("相當於window.onload");
+        //});
+
+        //為標籤添加事件
+        /*
+        $(function(){
+            $("h1").click(function(){
+                alert("我被點擊了");
+            });
+        });
+        */
+        //為標籤添加滑鼠點擊與放開事件
+        /*
+        $(function(){
+            $("h1").mouseover(function(){
+                this.style.backgroundColor = 'red'});
+        });
+        $(function(){
+            $("h1").mouseout(function(){
+                this.style.backgroundColor = 'white'});
+        });
+        */
+
+        //以上的寫法可以用鏈式操作簡化
+        //鏈式操作：
+        
+        $(function(){
+            $("h1").click(function(){
+                alert("我被點擊了");
+            })
+            .css("backgroundColor","orange")
+            .mouseover(function(){
+                this.style.backgroundColor='red';})
+            .mouseout(function(){
+                this.style.backgroundColor='blue';
+            })
+        });
+        
+
+        //取值賦值合體：學JQ的一個函數功能就相當於同時學會對元件作取值和賦值操作
+        //取值div1的內容
+        $(function(){
+            alert($("#div1").html());
+        });
+        //賦值div2的內容
+        $(function(){
+            $("#div2").html("我是新的內容");
+        });
+        
+        //注意：JS, JQ可以共存但是不能混用
+        /*
+        ("#div2")是一個JQ物件，這個物件不會有一般JS DOM物件的innerHTML屬性
+        */
+
+    </script>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <div id="div1">
+        <p>div1 文本</p>
+    </div>
+    <div id="div2">
+        <p>div2 文本</p>
+    </div>
+</body>
+<script>
+    alert("hello")
+</script>
+</html>
