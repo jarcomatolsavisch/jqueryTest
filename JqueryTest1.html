@@ -11,6 +11,7 @@
         
         //jQuery選擇網頁元素
         window.onload = function(){ 
+            //注意：下面的$(".box")是一個JQ對象
             /*
             //模擬css選擇元素
             $(".box").css("backgroundColor","red");
@@ -25,10 +26,14 @@
             //選擇li的第五個
             $("li:eq(4)").css("backgroundColor","purple");
             */
+           /*
             //上面的寫法也可以這樣寫
             $("li").eq(4).css("backgroundColor","purple");
+
             $("li").filter(".box").css("backgroundColor","green");
             $("li.cat").css("backgroundColor","red");
+            */
+
         }
         
     </script>
