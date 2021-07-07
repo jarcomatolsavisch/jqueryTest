@@ -1,0 +1,93 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<script>
+    /*
+    filter: 過濾 將已經獲取到的元素進行過濾
+    not: filter的反義詞
+    has: 判定子節點中是否擁有符合條件的元素
+    */
+   /*
+    $(function(){
+        //$("div").filter(".cat").css("backgroundColor","yellow");
+        //$("div").not(".cat").css("backgroundColor","green");
+        $("div").has(".bird").css("backgroundColor","blue");
+    });
+    */
+    
+    /*
+     prev: 查找當前兄弟節點的上一個節點
+     next: 查找當前兄弟節點的下一個節點
+    */
+   /*
+   $(function(){
+       $(".dog").prev().css("backgroundColor","lime");
+       $(".dog").next().css("backgroundColor","purple");
+   })
+   */
+    /*
+    find 查找子節點
+    */
+   /*
+   $(function(){
+       $("#myList").find(".tiger").css("backgroundColor","orange");
+        //也可以寫成)
+        //$("#myList .tiger").css("backgroundColor","blue");
+    })
+    */
+    /*
+    index 獲取當前節點在兄弟節點中的下標
+    */
+   /*
+   $(function(){
+       alert($("#flower").index());
+   })
+   */
+
+   //使用attr獲取或修改屬性的值
+   /*
+   $(function(){
+       //將#flower的class屬性設成"plant"
+        $("#flower").attr("class","plant")
+       alert($("#flower").attr("title"));
+       alert($("#flower").attr("class"));
+   })
+   */
+   //一次修改多個屬性
+   /*
+   $(function(){
+       $("#flower").attr({
+           title: 'welcome',
+           class: 'green'
+       });
+       alert($("#flower").attr("title"));
+       alert($("#flower").attr("class"));
+   })
+   */
+
+</script>
+<body>
+    <div>div1</div>
+    <div class="cat">div2</div>
+    <div class="cat">div3</div>
+    <div class="dog">
+        <p class = "bird">div4</p>
+    </div>
+    <div class="pig">div5</div>
+    <div>
+        <ul id="myList">
+            <li>list1</li>
+            <li class="tiger">list2</li>
+            <li id="flower" title='hello' class='none'>list3</li>
+            <li class="tiger">list4</li>
+        </ul>
+    </div>
+</body>
+</html>
