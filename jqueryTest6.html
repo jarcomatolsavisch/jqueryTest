@@ -1,0 +1,107 @@
+<!--事件綁定方法：on off-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style>
+        #div1{width:100px; height:100px;background-color: grey;}
+    </style>
+    <script>
+
+        //on 綁定方法
+        $(function(){
+            //1.給一個事件添加一個函數
+            /*
+            $("#div1").on("click", function(){
+                alert("hello");
+            });
+            */
+
+            //2.同時給多個件添加一個參數，多個事件之間用空格隔開
+            /*
+            var i=0;
+            $("#div1").on("click mouseover",function(){
+                $(this).html(i++);
+            });
+            */
+            //3.同時給不同事件添加不同函數
+            /*
+            $("#div1").on({
+                click: function(){
+                    alert("點擊");
+                },
+                mouseover: function(){
+                    $(this).css("backgroundColor","orange");
+                },
+                mouseout: function(){
+                    $(this).css("backgroundColor","blue");
+                }
+            })
+            */
+            //4.事件委託
+            //on的第二個參數為觸發對象的選擇器
+            
+            $("ul").on("click","li",function(){
+                //這裡的this是li物件
+                $(this).css("backgroundColor","red");
+            })
+            var j = 5;
+            $("#btn").click(function(){
+                $(`<li>${j++ * 1111}</li>`).appendTo($("#myList"));
+            })
+            
+            
+        });
+        //off 取消綁定方法
+        //取消所有事件的所有函數
+        /*
+        $(function(){
+            $('#cancel_btn').click(function(){
+                //一旦點擊，#div1的所有事件綁定方法都會失效
+                //$("#div1").off();
+                //取消特定事件的所有綁定方法
+                //$("#div1").off("mouseover");
+            });
+        })
+        */
+
+        //取消特定事件的特定綁定方法
+        //請用$("#div1").off("mouseover",show);
+        $(function(){
+            //先為#div1的mouseover添加事件綁定方法
+            //這裡一旦觸發mouseover，#div1裡面會顯示不斷上加的數字
+            //並且會執行show函數
+            var i=1;
+            $("#div1").on("click mouseover",function(){
+                $(this).html(i++);
+            });
+            function show(){
+                alert("you are in the div!")
+            }
+            $("#div1").on("mouseover",show);
+            //這裡設定取消按鈕功能
+            $("#cancel_btn").click(function(){
+                $("#div1").off("mouseover",show);
+            });
+        })
+        
+
+    </script>
+</head>
+<body>
+    <div id="div1"> 
+    </div>
+    <ul id="myList">
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+    <button id='btn'>增加節點</button>
+    <button id='cancel_btn'>取消事件</button>
+</body>
+</html>

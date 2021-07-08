@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<script>
+    /*
+    //新增刪除class
+    $(function(){
+        $("#div1").addClass("box2 box3 box4");
+        $("#div1").removeClass("box1 box5"); 
+    })
+    */
+    //JQ的節點操作方法
+    $(function(){
+
+        //insertBefore 將A元素插到B元素前
+        //insertAfter 將A元素插到B元素後
+        //$("span").insertBefore($("div"));
+
+        //appenTo 插入到子節點的末尾 類似JS方法appenChild
+        //pretendTo 插入到子節點的最前
+        //$("span").appendTo($("div"));
+
+        //before 元素前放另一個元素
+        //$("div").before($("span"));
+
+        /*
+        操作在被移動位置的元素      操作在位置元素
+        insertBefore            before
+        insertAfter             after
+        appendTo                append
+        prependTo               prepend
+        remove
+        會有兩種寫法是為了配合鏈式操作，如
+        */
+        //$("div").before($("span")).css("backgroundColor","blue");
+
+
+    })
+    //
+</script>
+<body>
+    <div id="div1" class="box1 box2">apple</div>
+    <span>span</span>
+</body>
+</html>
